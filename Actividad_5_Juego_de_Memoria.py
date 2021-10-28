@@ -1,9 +1,16 @@
+import string
 from random import *
 from turtle import *
 from freegames import path
 
 car = path('car.gif')
 tiles = list(range(32)) * 2
+
+# Se crea un nuevo arreglo con símbolos y letras que permiten una mayor diferenciación entre sí
+tiles2 = ['#', '$', '%', '&', '?', '~']
+tiles2.extend(list(string.ascii_uppercase))
+tiles2 = tiles2 * 2
+
 state = {'mark': None}
 hide = [True] * 64
 
@@ -32,7 +39,8 @@ def tap(x, y):
     spot = index(x, y)
     mark = state['mark']
 
-    if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+    #if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+    if mark is None or mark == spot or tiles2[mark] != tiles2[spot]:
         state['mark'] = spot
     else:
         hide[spot] = False
@@ -58,12 +66,14 @@ def draw():
         up()
         goto(x + 2, y)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        #write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles2[mark], font=('Arial', 30, 'normal'))
 
     update()
     ontimer(draw, 100)
 
-shuffle(tiles)
+#shuffle(tiles)
+shuffle(tiles2) # Los elementos del nuevo arreglo se mezclan para que pierdan su orden
 setup(420, 420, 370, 0)
 addshape(car)
 hideturtle()
