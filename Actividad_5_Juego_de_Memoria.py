@@ -60,7 +60,7 @@ def draw():
         up()
         goto(x + 2, y)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], font=('Arial', 30, 'normal'), align="center")
         
     # Cuenta cuantos cuadros se han revelado
     for count in range(64):
