@@ -1,3 +1,16 @@
+# 29/10/2021
+# 09:42 am
+
+# Juego memorama, cuenta cuantos intentos realizaste y detecta cuando completas el juego
+
+# Modificado por:
+# Gabriel Sebastián Garibay Dávila
+# Daniel Evaristo Escalera Bonilla
+# Francisco Cruz Vázquez
+# Juan Carlos Martínez Zacarías
+# Carmina López Palacios
+
+# Se incluyo la librería string para crear el arreglo de los símbolos de las tarjetas
 import string
 from random import *
 from turtle import *
@@ -38,19 +51,21 @@ def xy(count):
 
 def tap(x, y):
     "Update mark and hidden tiles based on tap."
+    # Se crea una variable global para guardar el número de veces que se inenta descubrir una parte de la imagen
     global tapCount
+    # Aumento de variable e impresión
     tapCount = tapCount + 1
     print(tapCount)
     spot = index(x, y)
     mark = state['mark']
 
-    #if mark is None or mark == spot or tiles[mark] != tiles[spot]:
     if mark is None or mark == spot or tiles2[mark] != tiles2[spot]:
         state['mark'] = spot
     else:
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+    # Cuando todas las tarjetas hayan sido descubiertas se da un mensaje de "bien hecho"
     if(hide == [False]*64):
         print("all done")
         return
@@ -84,6 +99,7 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
+        # Se va a las coordenadas donde se dió clic y se imprime el símbolo de la tarjeta
         goto(x + 26, y + 7)
         color('black')
         write(tiles2[mark], font=('Arial', 30, 'normal'), align="center")
@@ -91,7 +107,6 @@ def draw():
     update()
     ontimer(draw, 100)
 
-#shuffle(tiles)
 shuffle(tiles2) # Los elementos del nuevo arreglo se mezclan para que pierdan su orden
 setup(420, 420, 370, 0)
 addshape(ima)
