@@ -55,6 +55,15 @@ def draw():
 
     mark = state['mark']
     
+
+
+    if mark is not None and hide[mark]:
+        x, y = xy(mark)
+        up()
+        goto(x + 2, y)
+        color('black')
+        write(tiles[mark], font=('Arial', 30, 'normal'), align="center")
+
     # Cuenta cuantos cuadros se han revelado
     for count in range(64):
         if not hide[count]:
@@ -65,13 +74,6 @@ def draw():
                 color('white')
                 write('Felicidades', font=('Arial', 30, 'normal'))
 
-    if mark is not None and hide[mark]:
-        x, y = xy(mark)
-        up()
-        goto(x + 2, y)
-        color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'), align="center")
-    
     update()
     ontimer(draw, 100)
 
