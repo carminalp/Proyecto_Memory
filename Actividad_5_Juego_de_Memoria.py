@@ -48,6 +48,8 @@ def tap(x, y):
         return
     
 def draw():
+    # Contador para los cuadros que se han revelado
+    revealed = 0;
     "Draw image and tiles."
     clear()
     goto(0, 0)
@@ -60,6 +62,16 @@ def draw():
             square(x, y)
 
     mark = state['mark']
+    
+    # Cuenta cuantos cuadros se han revelado
+    for count in range(64):
+        if not hide[count]:
+            revealed += 1
+            # Si se revelaron todos escribe un mensaje de felicitaciones
+            if revealed >= 63:
+                goto(-125, -20)
+                color('white')
+                write('Felicidades', font=('Arial', 30, 'normal'))
 
     if mark is not None and hide[mark]:
         x, y = xy(mark)
