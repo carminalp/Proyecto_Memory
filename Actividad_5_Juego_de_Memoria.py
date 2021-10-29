@@ -61,8 +61,7 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'), align="center")
-    
-        # Cuenta cuantos cuadros se han revelado
+    # Cuenta cuantos cuadros se han revelado
     for count in range(64):
         if not hide[count]:
             revealed += 1
@@ -70,8 +69,7 @@ def draw():
             if revealed >= 63:
                 goto(-125, -20)
                 color('white')
-                write('Felicidades', font=('Arial', 30, 'normal'))
-                
+                write('Felicidades', font=('Arial', 30, 'normal'))   
     update()
     ontimer(draw, 100)
 
