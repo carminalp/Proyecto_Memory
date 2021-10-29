@@ -2,7 +2,8 @@ from random import *
 from turtle import *
 from freegames import path
 
-car = path('car.gif')
+
+ima = 'bha.gif'
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
@@ -50,7 +51,7 @@ def draw():
     "Draw image and tiles."
     clear()
     goto(0, 0)
-    shape(car)
+    shape(ima)
     stamp()
 
     for count in range(64):
@@ -72,7 +73,7 @@ def draw():
 
 shuffle(tiles)
 setup(420, 420, 370, 0)
-addshape(car)
+addshape(ima)
 hideturtle()
 tracer(False)
 onscreenclick(tap)
