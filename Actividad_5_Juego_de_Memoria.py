@@ -1,7 +1,7 @@
 # 29/10/2021
 # 09:42 am
 
-# Juego memorama, cuenta cuantos intentos realizaste y detecta cuando completas el juego
+# Juego memorama, cuenta cuantos intentos realizaste y detecta cuando completas el juego, dandote un mensaje de felicitaciones
 
 # Modificado por:
 # Gabriel Sebastián Garibay Dávila
